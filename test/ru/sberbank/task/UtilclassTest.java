@@ -1,11 +1,13 @@
 package ru.sberbank.task;
 
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 import org.junit.internal.ComparisonCriteria;
 
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,9 +19,7 @@ import java.util.Set;
 public class UtilclassTest extends ComparisonCriteria {
 
     private byte[][] inBytes0 = {{'H','e','l','l','o',' '}, {'t','h','e',' '},{'w','o','r','l','d','1'}},
-                     inBytes1 = {{'D','o','n','n','e','r','-'},{'w','e','t','t','e','r','!'}},
-                     expBytes0 = {{'H','e','l','o',' '}, {'t','h','e',' '},{'w','o','r','l','d','1'}},
-                     expBytes1 = {{'D','o','n','e','r','-'},{'w','e','t','r','!'}};
+                     inBytes1 = {{'D','o','n','n','e','r','-'},{'w','e','t','t','e','r','!'}};
     private Set<byte[]> inSet0 = new HashSet<>(),
                         inSet1 = new HashSet<>(),
                         expSet0 = new HashSet<>(),
@@ -43,11 +43,11 @@ public class UtilclassTest extends ComparisonCriteria {
             index++;
         }
 
-        expSet0.add(expBytes0[0]);
-        expSet0.add(expBytes0[1]);
-        expSet0.add(expBytes0[2]);
-        expSet1.add(expBytes1[0]);
-        expSet1.add(expBytes1[1]);
+        expSet0.add(inBytes0[0]);
+        expSet0.add(inBytes0[1]);
+        expSet0.add(inBytes0[2]);
+        expSet1.add(inBytes1[0]);
+        expSet1.add(inBytes1[1]);
         Set[] expextedValues = {expSet0,expSet1};
         index = 0;
         for (Set<byte[]> expextedValue : expextedValues) {
@@ -166,10 +166,6 @@ public class UtilclassTest extends ComparisonCriteria {
 //
 //    }
 //
-//    private boolean isArray(Object expected) {
-//        return expected != null && expected.getClass().isArray();
-//    }
-
 //    @Test
 //    public void testAddElement() throws Exception {
 //
@@ -187,12 +183,38 @@ public class UtilclassTest extends ComparisonCriteria {
 //    public void testGetListElements() throws Exception {
 //
 //    }
+
+//    public static void assertEquals(boolean expected, boolean actual) {
+//        String message = null;
+//        if(expected != actual) {
+//            failNotEquals(message, expected, actual);
+//        }
+//    }
 //
 //    @Test
 //    public void testCompareNumberWithZero() throws Exception {
 //
-//    }
+//        Object[][] inputValues = {
+//                {true, new Integer(0)},
+//                {false, new Integer(1)},
+//                {true, new Double(0.00)},
+//                {false, new Double(2.12)},
+//                {true, new Float("0.0")},
+//                {false, new Float("3.23")},
+//                {true, new BigDecimal(0)},
+//                {false, new BigDecimal(4000)},
+//                {false, 0},
+//                {false, 0.00},
+//                {false, 0.0},
+//                {false, "0.0"}};
 //
+//        for (Object inValue :
+//                inputValues) {
+//            Assert.assertEquals(inValue[0],Utilclass.compareNumberWithZero(inValue[1]));
+//        }
+//
+//    }
+
 //    @Test
 //    public void testLogData() throws Exception {
 //

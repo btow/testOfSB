@@ -48,8 +48,8 @@ public class Utilclass {
         //}
     }
 
-
-    public <T> boolean compareNumberWithZero(T obj) {
+    //The modifier "static" has ben added
+    public static <T> boolean compareNumberWithZero(T obj) {
 
 //operator "instanceof" use is not recommended
 //      if (obj instanceof Integer && ((Integer)obj) == 0) {
@@ -83,7 +83,7 @@ public class Utilclass {
     }
 
     //Methods to check data type without using the operator "instanceof".
-    private <T> boolean isBigDecimal(T obj) {
+    private static <T> boolean isBigDecimal(T obj) {
 
         try {
 
@@ -98,7 +98,7 @@ public class Utilclass {
         return true;
     }
 
-    private <T> boolean isFloat(T obj) {
+    private static <T> boolean isFloat(T obj) {
 
         try {
 
@@ -113,7 +113,7 @@ public class Utilclass {
         return true;
     }
 
-    private <T> boolean isDouble(T obj) {
+    private static <T> boolean isDouble(T obj) {
 
         try {
 
@@ -128,7 +128,7 @@ public class Utilclass {
         return true;
     }
 
-    private <T> boolean isInteger(T obj) {
+    private static <T> boolean isInteger(T obj) {
 
         try {
 
